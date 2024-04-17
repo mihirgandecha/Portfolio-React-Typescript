@@ -1,3 +1,5 @@
+import { MouseEvent } from "react";
+
 function ListGroup() {
   //how to render elements dynamically:
   let items = [
@@ -7,6 +9,9 @@ function ListGroup() {
     "Game in Processing",
     "Text Game in Java",
   ];
+
+  //Event handler
+  const handleClick = (event: MouseEvent) => console.log(event);
 
   //rendering based on condition:
   //   if (items.length === 0)
@@ -33,7 +38,7 @@ function ListGroup() {
             className="list-group-item"
             key={item}
             // use event to generate SyntheticBasedEvent and properties
-            onClick={(event) => console.log(event)}
+            onClick={handleClick}
           >
             {item}
           </li>
