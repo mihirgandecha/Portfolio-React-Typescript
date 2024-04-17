@@ -1,11 +1,19 @@
 function ListGroup() {
+  //how to render elements dynamically:
+    const items = [
+    "Turtle in C",
+    "SQL in Java",
+    "NQueens in C",
+    "Game in Processing",
+    "Text Game in Java",
+  ];
+  
+  //take each item and convert to item of type <li>
   return (
     <ul className="list-group">
-      <li className="list-group-item">Turtle in C</li>
-      <li className="list-group-item">SQL in Java</li>
-      <li className="list-group-item">NQueens in C</li>
-      <li className="list-group-item">Game in Processing</li>
-      <li className="list-group-item">Text Game in Java</li>
+      {items.map((item) => (
+        <li key = {item}>{item}</li>
+      ))}
     </ul>
   );
 }
