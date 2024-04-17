@@ -9,6 +9,7 @@ function ListGroup() {
     "Game in Processing",
     "Text Game in Java",
   ];
+  let selectedIndex = 0;
 
   //Event handler
   const handleClick = (event: MouseEvent) => console.log(event);
@@ -35,7 +36,11 @@ function ListGroup() {
         {items.map((item, index) => (
           // Reapply bootstrap
           <li
-            className="list-group-item"
+            className={
+              selectedIndex === index
+                ? "list-group-item active"
+                : "list-group-item"
+            }
             key={item}
             // use event to generate SyntheticBasedEvent and properties
             onClick={handleClick}
