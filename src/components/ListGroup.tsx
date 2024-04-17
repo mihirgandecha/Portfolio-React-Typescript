@@ -7,7 +7,6 @@ function ListGroup() {
     "Game in Processing",
     "Text Game in Java",
   ];
-  items = [];
 
   //rendering based on condition:
   //   if (items.length === 0)
@@ -28,8 +27,16 @@ function ListGroup() {
       {/* Easier way without null to render dynamically: */}
       {items.length === 0 && <p>No projects found</p>}
       <ul className="list-group">
-        {items.map((item) => (
-          <li key={item}>{item}</li>
+        {items.map((item, index) => (
+          // Reapply bootstrap
+          <li
+            className="list-group-item"
+            key={item}
+            // use event to generate SyntheticBasedEvent and properties
+            onClick={(event) => console.log(event)}
+          >
+            {item}
+          </li>
         ))}
       </ul>
     </>
