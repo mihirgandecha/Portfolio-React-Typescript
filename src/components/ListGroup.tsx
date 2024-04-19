@@ -3,11 +3,14 @@ import { MouseEvent } from "react";
 function ListGroup() {
   //how to render elements dynamically:
   let items = [
+    "Portfolio",
+    "Minesweeper in C",
+    "NQueens in C",
     "Turtle in C",
     "SQL in Java",
-    "NQueens in C",
-    "Game in Processing",
     "Text Game in Java",
+    "Group Game Project in Processing",
+    "Mynt Finance Full Stack Mobile Appliation in Flutter"
   ];
   let selectedIndex = 0;
 
