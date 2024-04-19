@@ -13,11 +13,16 @@ function App() {
     "Group Game Project in Processing",
     "Mynt Finance Full Stack Mobile Appliation in Flutter"
   ];
+
+  const handleSelectItem = (item: string) => {
+    console.log(item);
+  }
+
   return (
     <Fragment>
       <NameHeader></NameHeader>
       <Fragment>
-        <ListGroup items={items} headings="Bristol MSc Projects:" />
+        <ListGroup items={items} headings="Bristol MSc Projects:" onSelectItem={handleSelectItem} />
       </Fragment>
     </Fragment>
   );

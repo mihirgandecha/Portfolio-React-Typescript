@@ -3,9 +3,13 @@ import { useState } from "react";
 interface Project {
   items: string[];
   headings: string;
+  //Treat properties as imutable -> unable to change
+  //ie no headings = "new masters"
+
+  onSelectItem: (item: string) => void;
 }
 
-function ListGroup({ items, headings }: Project) {
+function ListGroup({ items, headings, onSelectItem }: Project) {
   //how to render elements dynamically:
   //state hook - this component has data that changes over time
   const [selectedIndex, setSelectedIndex] = useState(-1);
@@ -45,9 +49,9 @@ function ListGroup({ items, headings }: Project) {
             key={item}
             // use event to generate SyntheticBasedEvent and properties
             onClick={
-              (event) => {
+              () => {
                 setSelectedIndex(index);
-                console.log(item, index, event);
+                onSelectItem(item);
               }
             }
           >
