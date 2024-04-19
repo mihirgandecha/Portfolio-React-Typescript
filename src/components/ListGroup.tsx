@@ -3,9 +3,6 @@ import { useState } from "react";
 interface Project {
   items: string[];
   headings: string;
-  //Treat properties as imutable -> unable to change
-  //ie no headings = "new masters"
-
   onSelectItem: (item: string) => void;
 }
 
