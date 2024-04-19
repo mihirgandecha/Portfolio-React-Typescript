@@ -1,21 +1,17 @@
 import { useState } from "react";
 
 interface Project {
-  items: string[];
+  projectName: string[];
   headings: string;
   onSelectItem: (item: string) => void;
 }
 
-function ListGroup({ items, headings, onSelectItem }: Project) {
+function ListGroup({ projectName, headings, onSelectItem }: Project) {
   //how to render elements dynamically:
   //state hook - this component has data that changes over time
   const [selectedIndex, setSelectedIndex] = useState(-1);
   // arr[0] //variable (selectedIndex)
   // arr[1] //updater function 
-
-
-
-
   //Event handler
   // const handleClick = (event: MouseEvent) => console.log(event);
 
@@ -33,9 +29,9 @@ function ListGroup({ items, headings, onSelectItem }: Project) {
   return (
     <>
       <h3>{headings}</h3>
-      {items.length === 0 && <p>No projects found</p>}
+      {projectName.length === 0 && <p>No projects found</p>}
       <ul className="list-group">
-        {items.map((item, index) => (
+        {projectName.map((projectName, index) => (
           // Reapply bootstrap
           <li
             className={
@@ -43,19 +39,19 @@ function ListGroup({ items, headings, onSelectItem }: Project) {
                 ? "list-group-item active"
                 : "list-group-item"
             }
-            key={item}
+            key={projectName}
             // use event to generate SyntheticBasedEvent and properties
             onClick={
               () => {
                 setSelectedIndex(index);
-                onSelectItem(item);
+                onSelectItem(projectName);
               }
             }
           >
-            {item}
+            {projectName}
           </li>
         ))}
-      </ul>
+      </ul >
     </>
   );
 }

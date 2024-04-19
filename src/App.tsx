@@ -3,7 +3,7 @@ import ListGroup from "./components/ListGroup";
 import { Fragment } from "react/jsx-runtime";
 
 function App() {
-  let items = [
+  let allProjectsNames = [
     "Portfolio",
     "Minesweeper in C",
     "NQueens in C",
@@ -22,7 +22,7 @@ function App() {
     <Fragment>
       <NameHeader></NameHeader>
       <Fragment>
-        <ListGroup items={items} headings="Bristol MSc Projects:" onSelectItem={handleSelectItem} />
+        <ListGroup projectName={allProjectsNames} headings="Bristol MSc Projects:" onSelectItem={handleSelectItem} />
       </Fragment>
     </Fragment>
   );
