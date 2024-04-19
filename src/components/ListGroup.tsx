@@ -1,17 +1,12 @@
 import { useState } from "react";
 
-function ListGroup() {
+interface Project {
+  items: string[];
+  headings: string;
+}
+
+function ListGroup({ items, headings }: Project) {
   //how to render elements dynamically:
-  let items = [
-    "Portfolio",
-    "Minesweeper in C",
-    "NQueens in C",
-    "Turtle in C",
-    "SQL in Java",
-    "Text Game in Java",
-    "Group Game Project in Processing",
-    "Mynt Finance Full Stack Mobile Appliation in Flutter"
-  ];
   //state hook - this component has data that changes over time
   const [selectedIndex, setSelectedIndex] = useState(-1);
   // arr[0] //variable (selectedIndex)
@@ -36,7 +31,7 @@ function ListGroup() {
   //take each item and convert to item of type <li>
   return (
     <>
-      <h3>Master's Projects:</h3>
+      <h3>{headings}</h3>
       {items.length === 0 && <p>No projects found</p>}
       <ul className="list-group">
         {items.map((item, index) => (
