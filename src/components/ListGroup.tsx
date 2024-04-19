@@ -1,4 +1,4 @@
-import { MouseEvent } from "react";
+import { useState } from "react";
 
 function ListGroup() {
   //how to render elements dynamically:
@@ -12,10 +12,16 @@ function ListGroup() {
     "Group Game Project in Processing",
     "Mynt Finance Full Stack Mobile Appliation in Flutter"
   ];
-  let selectedIndex = 0;
+  //state hook - this component has data that changes over time
+  const [selectedIndex, setSelectedIndex] = useState(-1);
+  // arr[0] //variable (selectedIndex)
+  // arr[1] //updater function 
+
+
+
 
   //Event handler
-  const handleClick = (event: MouseEvent) => console.log(event);
+  // const handleClick = (event: MouseEvent) => console.log(event);
 
   //rendering based on condition:
   //   if (items.length === 0)
@@ -31,9 +37,6 @@ function ListGroup() {
   return (
     <>
       <h3>Master's Projects:</h3>
-      {/* we can't use conditional in html, however can if use {} */}
-      {/* {items.length === 0 ? <p>No projects found!</p> : null} */}
-      {/* Easier way without null to render dynamically: */}
       {items.length === 0 && <p>No projects found</p>}
       <ul className="list-group">
         {items.map((item, index) => (
@@ -46,7 +49,12 @@ function ListGroup() {
             }
             key={item}
             // use event to generate SyntheticBasedEvent and properties
-            onClick={handleClick}
+            onClick={
+              (event) => {
+                setSelectedIndex(index);
+                console.log(item, index, event);
+              }
+            }
           >
             {item}
           </li>
